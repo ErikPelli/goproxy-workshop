@@ -21,6 +21,7 @@ func main() {
 	defer randomSrv.Close()
 
 	proxy := goproxy.NewProxyHttpServer()
+	proxy.CertStore = NewCertStorage()
 
 	proxy.OnRequest().HandleConnect(goproxy.AlwaysMitm)
 
